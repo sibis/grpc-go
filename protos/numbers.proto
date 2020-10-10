@@ -1,0 +1,16 @@
+syntax="proto3";
+
+message NumberRequest {
+	int32 Number=1;
+}
+
+message NumberResponse {
+	int32 Number=1;
+}
+
+service Number {
+	rpc FindBiggest(stream NumberRequest) returns (stream NumberResponse);
+	rpc FindBiggestNumCS(stream NumberRequest) returns (NumberRequest);
+	rpc FindBiggestNumSS(NumberRequest) returns (stream NumberRequest);
+	rpc FindBiggestNum(NumberRequest) returns (NumberResponse);
+}
